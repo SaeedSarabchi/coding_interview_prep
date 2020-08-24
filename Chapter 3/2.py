@@ -3,8 +3,6 @@ class StackNode:
         self.data = data
         self.next = None
         self.min_next = None
-        self.a = 1
-
 
 
 class Stack2:
