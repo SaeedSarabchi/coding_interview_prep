@@ -1,0 +1,48 @@
+- create the frequency hash table
+- return the keys and the values of the hashtable
+
+- traverse the characters in the string, and by reading each new character, start counting that character, and when we see another character or end of the string, we write the count.
+
+def compress_string(input_string):
+    new_string  = bytearray(input_string.encode())
+    char_count = 0
+    pointer_to_new_string = 0
+    previous_char = ' '
+    for current_char in input_string:
+        // TODO: check for edge case for new_string out of index
+        if current_char != previous_character:
+            if char_count>0:
+                if pointer_to_new_string+1 >= len(input_string):
+                    return input_string
+                new_string[pointer_to_new_string] = ord(previous_character)
+                new_string[pointer_to_new_string+1] = ord(char_count)
+                char_count = 1
+                pointer_to_new_string += 2
+        else:
+            char_count += 1
+        previous_character = current_character
+    return new_string[:pointer_to_new_string].decode()
+
+
+ > def compress_string("aabbb")
+  a2b2
+
+
+implementation in a pythonic way: meaning that instead of chararray, we use a list
+def compress_string2(input_string):
+    new_string_list = list(input_string)
+    previous_char = '-'
+    consecutive_chars = 0
+    for char in input_string:
+        if previous_char != char and consecutive_chars>0:
+            new_string_list.append(char)
+            new_string_list.append(consecutive_chars)
+        previous_char = char
+        consecutive_chars += 1
+    if len(new_string_list<len(input_string)
+        return ''.join(new_string_list)
+    else:
+        return input_string
+
+
+

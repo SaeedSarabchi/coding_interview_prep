@@ -1,0 +1,34 @@
+based on the book:
+
+two pointers, first with speed 1, second, with speed 2, when they collide, one pointer from the head, until they collide
+
+def find_loop_node(input_list):
+    if input_list._head is None:
+        return None
+
+    slow = input_list._head
+    fast = input_list._head
+
+    is_looped = False
+    first = True
+
+    while slow.next is not None and fast.next is not None and fast.next.next is not None:
+        if slow == fast:
+            if first:
+                first = False
+            else:
+                is_looped = True
+                break
+        slow = slow.next b,c,d
+        fast = fast.next.next c,b,d
+
+    if not is_looped:
+        return None
+
+    ptr = input_list._head
+    while ptr != slow:
+        ptr = ptr.next b
+        slow = slow.next b
+    return ptr
+
+abcdb*

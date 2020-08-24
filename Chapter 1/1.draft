@@ -1,0 +1,62 @@
+all unique characters -> the string contains all of the characters and each character is unique.
+ using data structure:
+ - put the alphabet in a hashtable.
+ - traverse the string, annotate the frequency of each character in the hashtable.
+ - traverse the hashtable, if the frequency of all cells are exactly one,  then return yes.
+
+ without using data structure:
+- have an array of 26 elements, where the first element corresponds to 'a', second element corresponds to 'b', ..., last element corresponds to 'z'.
+ - continue just like above.
+
+ without even using an array:
+
+
+Code:
+def question1(input_string):
+    alphabet_hash_table = {}
+    for char in input_string:
+        if char in input_string:
+            alphabet_hash_table[char] += 1
+        else:
+            alphabet_hash_table[char] = 1
+
+    if len(alphabet_hash_table) == 26:
+        for char in alphabet_hash_table:
+            if alphabet_hash_table[char] != 1
+                return False
+            return True
+    return False
+
+Assume -> all of the characters in the string are unique.
+has_unique_characters("asd") -> True, has_unique_characters("assd") -> False
+with data-structure:
+- put each of the characters in the string into a hashtable. (key = character, value = counter, i.e. the frequency of the character in the string)
+- traverse the values of the hashtable, if any value above 1, then return False, else, return true.
+runtime: O(n)
+space: O(1)
+
+Code:
+def has_all_unique_characters(input_string):
+    hash_table = {}
+    for char in input_string:
+        if char not in hash_table:
+            hash_table[char] = 1
+        else:
+            hash_table[char] += 1
+
+    for char in hash_table:
+        if hash_table[char] > 1:
+            return False
+    return True
+
+Without data structure:
+ - traverse the input string
+    - insert each character into a sorted list (by doing a binary search on the sorted list, and if the char not found, insert to the list, if found the return False)
+runtime: O(nlogn)
+space: O(1)
+
+def has_all_unique_characters(input_string):
+    sorted_list = []
+    for char in input_string:
+        found = binary_search()
+

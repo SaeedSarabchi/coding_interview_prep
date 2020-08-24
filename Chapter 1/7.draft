@@ -1,0 +1,26 @@
+the formula is:
+    - new_i -> previous_j
+    - new_j -> N which is the size of the matrix - previous_i + 1
+for in-place: let's go 4 at a time, row by row, until half of the rows.
+
+def rotate_90_in_place(matrix):
+    for i in range(ceiling(len(Matrix[0])/2)):
+        for j in range((len(Matrix[0])):
+            for i in range(4):
+                new_i = j
+                new_j = len(Matrix[0]-i+1
+                buffer = matrix[new_i][new_j]
+                matrix[new_i][new_j] = matrix[i][j]
+
+
+
+def rotate_90(matrix):
+    new_matrix=[[None]*len(matrix)]*len(matrix)
+    for i in range((len(Matrix[0]))):
+        for j in range((len(Matrix[0])):
+                new_i = j
+                new_j = len(Matrix[0])-i-1
+                new_matrix[new_i][new_j] = matrix[i][j]
+    return new_matrix
+
+rotate_90([1,2][3,4])

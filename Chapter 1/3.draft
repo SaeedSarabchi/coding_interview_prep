@@ -1,0 +1,41 @@
+- convert the string into a list
+- set true-size-th index to an 'end' character.
+- replace the spaces with '%20' until the end character.
+
+def URLify(input_string, true_size):
+    char_array = list(input_string)
+    char_array[true_size] = '\0'
+    for char in char_array:
+        if char == ' ':
+            char = '%20'
+        if char == '\0':
+            break
+    return char_array.join('')
+
+
+Assuming that we have to use char-array and in-place manipulation:
+URLify("ab cd e", 7) -> "ab%20cd%20e"
+- calculate the end index and delete the rest
+- from the end of the string, shift the character to the end, and when there is a space, replace it with %20
+
+def URLify(input_string, true_size):
+    input_byte_array = bytearray(input_string.encode())
+    number_of_spaces = 0
+    for char in input_byte_array:
+        if chr(char) == ' ':
+            number_of_spaces += 1
+    end_index = true_size + 2*number_of_spaces
+    for i in range(end_index,len(input_string)):
+        input_byte_array.pop()
+    for i in range(true_size, 0, -1):
+        if chr(input_byte_array[i-1]) == ' ':
+            input_byte_array[end_index-true_size+i-1] = b'0'
+            input_byte_array[end_index-true_size+i-2] = b'2'
+            input_byte_array[end_index-true_size+i-3] = b'%'
+        else:
+            input_byte_array[end_index-true_size+i-1] = input_byte_array[i-1]
+
+    return input_byte_array.decode()
+
+
+

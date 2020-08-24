@@ -1,0 +1,39 @@
+kayak
+
+- traverse the list to compute the size of the list.
+- reverse the first half elements, while maintaining the pointer on the first element on the original list.
+- set a pointer to the beginning of the new list.
+- increment both pointers, if all of the elements are the same, then palindrome.
+
+Time Complexity: O(N)
+Space Complexity: O(1)
+
+def is_linkedlist_palindrome(input_list):
+    size = 0
+    ptr = input_list._head k,
+    while ptr is not None:
+        size += 1 1,2,3,4,5
+        ptr = ptr.next a,y,a,k,None
+
+    #reversing the first half of the elements
+    running_ptr = input_list._head k
+    for i in range(size//2-1): 0
+        temp = running_ptr.next a,y
+        running_ptr.next = running_pointer.next.next k->y, k->a
+        temp.next = input_list._head
+        input_list._head = temp akyak,yakak
+    if size%2 = 1:
+        running_ptr.next = running.next.next
+    running_ptr = running_ptr.next
+
+    #checking if the list is palindrome
+    secondary_ptr = input_list._head
+    for i in range(size//2):
+        if(secondary_ptr.data.key != running_ptr.data.key)
+            return False
+        secondary_ptr = secondary_ptr.next
+        running_ptr = running_ptr.next
+    return True
+
+
+akak

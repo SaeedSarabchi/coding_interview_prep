@@ -1,0 +1,4 @@
+just assign the node to the next node: O(1)
+
+def delete_middle_node(node)
+node = node.next

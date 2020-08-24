@@ -1,0 +1,10 @@
+Assume that you do not have pointers!!!
+so each block can grow.
+
+Assume:
+each stack has a default capacity, and can grow or shrink.
+if a stack has to grow, the next stack should shrink.
+
+The number of stacks are variable.
+
+* This question was not coded completely.

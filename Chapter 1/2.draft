@@ -1,0 +1,34 @@
+s1=abc
+s2=bac
+is_permutation(s1,s2) -> True/False
+
+with using more space:
+brute force:
+- create a hash table from s1, where the keys are the characters and the values are the frequencies of the characters.
+- do above for s2
+- compare the hash tables.
+
+time complexity: O(n)
+space complexity: O(n), c=number of available characters.
+
+def is_permutation(s1,s2):
+    hash_table_1 = {}
+    for char in s1:
+        if char is not in hash_table_1:
+            hash_table_1[char] = 1
+        else:
+            hash_table_1[char] += 1
+
+    hash_table_2 = {}
+    for char in s2:
+        if char is not in hash_table_2:
+            hash_table_2[char] = 1
+        else:
+            hash_table_2[char] += 1
+    return hash_table_1==hash_table_2
+
+without using space:
+- sort s1
+- sort s2
+compare s1 and s2:
+    - one raising pointer from s1, one raising pointer from s2, if the pointers point to different characters, then return False

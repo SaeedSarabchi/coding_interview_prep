@@ -1,0 +1,42 @@
+XX: don't forget SELF inside the method implementations!!!
+
+2 stacks: 1: enqueue_stack, 2: dequeue_stack
+- for each enqueue: just push into enqueue stack
+- for each dequeue: pop from dequeue_stack, and if dequeue_stack is empty, then push all elements in enqueue stack into dequeue stack and pop from dequeue stack.
+
+enqueue: O(1)
+dequeue: O(N/len(dequeue_stack))
+
+class QueueViaStack:
+    def __init__(self):
+        enqueue_stack = Stack()
+        dequeue_stack = Stack()
+
+    def enqueue(self, data):
+        enqueue_stack.push(data)
+
+    def dequeue(self):
+        if not dequeue_stack.is_empty():
+            dequeue_stack.pop()
+        else:
+            while not enqueue_stack.is_empty():
+                dequeue_stack.push(enqueue_stack.pop())
+            dequeue_stack.pop()
+
+    def is_empty():
+        return dequeue_stack.is_empty() and enqueue_stack.is_emtpy()
+
+    def peek():
+        top_element = self.dequeue()
+        self.dequeue_stack.push(top_element)
+        return top_element
+
+
+my_queue = QueueViaStack()
+my_queue.enqueue(1)
+my_queue.enqueue(2)
+my_queue.enqueue(3)
+my_queue.enqueue(4)
+my_queue.dequeue()
+
+

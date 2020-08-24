@@ -1,0 +1,4 @@
+Assuming that all the input data are numbers.
+
+the stack should have a pointer called min, and each stack node should have a min_next, as well as the next element, and with every push or pop, the min_next and the min pointer maybe updated:
+

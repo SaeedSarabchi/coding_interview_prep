@@ -1,0 +1,37 @@
+* Remember: runtime complexity + space complexity
+* Remember: !Test! the algorithm before executing
+is_palindrome_permutation(input_str)
+
+> is_palindrome_permutation("aa bb")
+True
+
+- if  the (length of the string % 2)=0, the frequency of the characters should be divisible by two
+- if  the (length of the string % 2)=1, all except one of the frequency of the characters should be divisible by two.
+ runtime complexity: O(n)
+ space complexity: O(c), c is the number of available characters
+
+ def is_palindrome_permutation(input_str):
+    hash_table = {}
+    for char in input_str:
+        char = char.lower()
+        if char in hash_table:
+            hash_table[char] += 1
+        else:
+            hash_table[char] = 1
+
+    number_of_chars_not_divisible_by_2 = 0
+    for char in hash_table:
+        if hash_table[char]%2==1:
+            number_of_chars_not_divisible_by_2 += 1
+
+    if len(input_str)%2 == 0:
+        if number_of_chars_not_divisible_by_2 == 0:
+            return True
+        else:
+            return False
+    else: # len(input_str)%2 == 1
+        if number_of_chars_not_divisible_by_2 == 1:
+            return True
+        else:
+            return False
+

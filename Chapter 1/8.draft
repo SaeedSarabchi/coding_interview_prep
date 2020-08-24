@@ -1,0 +1,21 @@
+brute force:
+O(M*N*(m+n))
+
+optimize:
+
+
+def zero_matrix(input_matrix):
+    for row_index in range(len(input_matrix)): 0
+        for column_index in range(len(input_matrix[0])): 2
+            if matrix[row_index][column_index] == 0:
+                make_zero(input_matrix, row_index, column_index)
+
+def make_zero(input_matrix, input_row_index, input_column_index):
+    for row_index in range(len(input_matrix)):
+        input_matrix[row_index][input_column_index] = 0
+    for col_index in range(len(input_matrix[0])):
+        input_matrix[input_row_index][col_index] = 0
+
+
+> zero_matrix([1,2,0][4,5,6])
+

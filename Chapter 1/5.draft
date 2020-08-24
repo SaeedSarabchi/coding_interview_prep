@@ -1,0 +1,6 @@
+have a pointer on the first and the second string,
+if the number of differences are less than or equal one, then return true.
+
+time complexity: O(n)
+space complexity: O(1)
+
