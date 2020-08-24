@@ -60,7 +60,7 @@ class StackWithMinStack(Stack):
         if super().is_empty():
             self.min_stack.push(data)
         else:
-            if(data < self.min_stack.peek()):
+            if data < self.min_stack.peek():
                 self.min_stack.push(data)
         super().push(data)
 
