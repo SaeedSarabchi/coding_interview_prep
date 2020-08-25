@@ -1,5 +1,5 @@
 import time
-from Queue import Queue
+from QueueClass import Queue
 
 
 class Animal:

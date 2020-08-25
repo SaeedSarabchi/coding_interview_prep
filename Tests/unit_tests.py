@@ -4,7 +4,7 @@ from ArrayList import ArrayList
 from StringBuilder import StringBuilder
 from HashTable import HashTable
 from Stack import Stack
-from Queue import Queue
+from QueueClass import Queue
 
 
 class TestLinkList(unittest.TestCase):
