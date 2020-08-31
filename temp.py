@@ -2,6 +2,7 @@ from LinkedList import *
 class test1:
     def __init__(self):
         self.__list2 = [None]*20
+        self.aaa = 2
 
     def __get__(self, instance, owner):
         return self.__list2
@@ -96,4 +97,11 @@ def iterative_linkedlist_to_list_forward(node):
 
 #print(sample_linkedlist_function())
 print("salam")
+a=[1,2,3]
+print(a)
 
+t2 = test1()
+if hasattr(t2, 'list'):
+    print("yes")
+else:
+    print("no")
