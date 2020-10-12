@@ -19,7 +19,12 @@ class TestGraph(unittest.TestCase):
 
     def test_dfs(self):
         self.init_graph()
-        self.assertEqual(self.graph.dfs(), [0,1,3,2,4,5])
+        self.assertEqual(self.graph.dfs(), [ {'d': 1, 'data': 0, 'f': 12},
+                                             {'d': 2, 'data': 1, 'f': 9},
+                                             {'d': 3, 'data': 3, 'f': 8},
+                                             {'d': 4, 'data': 2, 'f': 5},
+                                             {'d': 6, 'data': 4, 'f': 7},
+                                             {'d': 10, 'data': 5, 'f': 11} ])
 
     def test_bfs(self):
         self.init_graph()
@@ -64,4 +69,25 @@ class TestGraph(unittest.TestCase):
                             node_shoes, node_watch]
         self.assertEqual(self.graph.topological_sort(), ['watch', 'socks', 'shirt', 'tie', 'undershorts', 'pants',
                                                          'belt', 'jacket', 'shoes'])
+
+    def test_shortest_path(self):
+        self.graph = Graph()
+        node_0 = GraphNode(0)
+        node_1 = GraphNode(1)
+        node_2 = GraphNode(2)
+        node_3 = GraphNode(3)
+        node_4 = GraphNode(4)
+        node_0.children = [node_1, node_3]
+        node_0.child_weights = [2,1]
+        node_1.children = [node_2]
+        node_1.child_weights = [2]
+        node_2.children = [node_4]
+        node_2.child_weights = [4]
+        node_3.children = [node_4]
+        node_3.child_weights = [1]
+        node_4.children = [node_2]
+        node_4.child_weights = [1]
+        self.graph.nodes = [node_0, node_1, node_2, node_3, node_4]
+        self.assertEqual(self.graph.shortest_path(0), [-1,0,4,0,3])
+
 

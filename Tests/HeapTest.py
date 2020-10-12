@@ -33,13 +33,20 @@ class TestHeap(unittest.TestCase):
     def test_extract_max(self):
         self.init_heap()
         self.heap.build_heap()
-        self.heap.extract_max()
+        self.heap.extract_top()
         self.assertEqual(self.heap._array, [4, 2, 3, 1])
 
     def test_heap_sort(self):
         self.heap = Heap([1,3,5,6,3,2,1,2,5,6,6,17,19,10])
         self.heap.build_heap()
         self.assertEqual(self.heap.heap_sort(), [19, 17, 10, 6, 6, 6, 5, 5, 3, 3, 2, 2, 1, 1])
+
+    def test_min_heap_sort(self):
+        self.heap = Heap([1, 3, 5, 6, 3, 2, 1, 2, 5, 6, 6, 17, 19, 10])
+        self.heap.build_heap(False)
+        self.assertEqual(self.heap.heap_sort(False), [1, 1, 2, 2, 3, 3, 5, 5, 6, 6, 6, 10, 17, 19])
+
+
 
 
 if __name__ == '__main__':
