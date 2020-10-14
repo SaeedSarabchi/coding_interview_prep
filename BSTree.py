@@ -5,19 +5,21 @@ class BSTreeNode:
         self.right = None
         self.parent = None
 
-    def insert_key(self, input_data):
-        if input_data <= self.data:
+    def insert_key(self, input_node):
+        if input_node.data <= self.data:
             if self.left is None:
-                self.left = BSTreeNode(input_data)
+                self.left = input_node
                 self.left.parent = self
+                #return self.left
             else:
-                self.left.insert_key(input_data)
+                self.left.insert_key(input_node)
         else:
             if self.right is None:
-                self.right = BSTreeNode(input_data)
+                self.right = input_node
                 self.right.parent = self
+                #return self.right
             else:
-                self.right.insert_key(input_data)
+                self.right.insert_key(input_node)
 
     def in_order(self):
         left = []
@@ -98,51 +100,52 @@ class BSTreeNode:
 
 class BSTree:
     def __init__(self):
-        self.__root = None
+        self._root = None
 
     @property
     def root(self):
-        return self.__root
+        return self._root
 
     def insert_key(self, input_data):
-        if self.__root is not None:
-            self.__root.insert_key(input_data)
+        new_node = BSTreeNode(input_data)
+        if self._root is not None:
+            self._root.insert_key(new_node)
         else:
-            self.__root = BSTreeNode(input_data)
+            self._root = new_node
 
     def in_order(self):
-        if self.__root is not None:
-            return self.__root.in_order()
+        if self._root is not None:
+            return self._root.in_order()
         else:
             return None
 
     def pre_order(self):
-        if self.__root is not None:
-            return self.__root.pre_order()
+        if self._root is not None:
+            return self._root.pre_order()
         else:
             return None
 
     def post_order(self):
-        if self.__root is not None:
-            return self.__root.post_order()
+        if self._root is not None:
+            return self._root.post_order()
         else:
             return None
 
     def search(self, data):
-        if self.__root is not None:
-            return self.__root.search(data)
+        if self._root is not None:
+            return self._root.search(data)
         else:
             return None
 
     def min(self):
-        if self.__root is not None:
-            return self.__root.min()
+        if self._root is not None:
+            return self._root.min()
         else:
             return None
 
     def max(self):
-        if self.__root is not None:
-            return self.__root.max()
+        if self._root is not None:
+            return self._root.max()
         else:
             return None
 
@@ -173,6 +176,6 @@ class BSTree:
             else:
                 to_be_deleted.parent.right = to_be_substituted
         else:
-            self.__root = to_be_substituted
+            self._root = to_be_substituted
 
 
