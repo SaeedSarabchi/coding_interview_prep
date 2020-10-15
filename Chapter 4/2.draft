@@ -1,0 +1,61 @@
+Errors:
+remember to add all attributes to the smaller class, e.g. in BSTreeNode, you forgot to include left and right in the __init__ method!
+The mid element in arrays is always mid_element_idx = len(sorted_array)//2, not mid_element_idx = len(sorted_array)//2-1 and a special case for 1 !!!
+build_minimal_bstree_from_sorted_array2 and add_mid_array_recursively2 are written much cleaner than their first version in the code.
+
+algo:
+every time, pick the mid element, and recursively pick the mid element in the right and the left side.
+
+
+class BSTreeNode:
+    def __init__(self, data):
+        self.data = data
+
+    def insert(self, new_node):
+        if new_node.data <= self.data:
+            if self.left is None:
+                self.left = new_node
+            else:
+                self.left.insert(new_node)
+        else:
+            if self.right is None:
+                self.right = new_node
+            else:
+                self.right.insert(new_node)
+
+
+class BSTree:
+    def __init__(self):
+        self._root = None
+
+    def insert(self, new_node):
+        if self._root is None:
+            self._root = new_node
+        else:
+            self._root(new_node)
+
+
+def build_minimal_bstree_from_sorted_array(sorted_array):
+    bstree = BSTree()
+    add_mid_array_resursively(bstree, sorted_array)
+    return bstree
+
+def add_mid_array_recursively(bstree, sorted_array):
+    if len(sorted_array) = 0:
+        return
+
+    mid_element_idx = 0
+    if len(sorted_array) == 1:
+        mid_element_idx = 0
+    else:
+        mid_element_idx = len(sorted_array)//2 - 1
+
+    mid_element = sorted_array[mid_element_idx]
+    new_node = BSTreeNode(mid_element)
+    sorted_array.insert(new_node)
+    add_mid_array_recursively(bstree, sorted_array[0:mid_element_idx])
+    add_mid_array_recursively(bstree, sorted_array[mid_element_idx+1:])
+
+
+sorted_array = [1,2,3,4,5,6,7]
+result_tree = build_minimal_binary_search_tree(sorted_array)

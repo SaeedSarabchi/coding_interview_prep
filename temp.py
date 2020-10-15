@@ -109,3 +109,6 @@ else:
 print([1,1,-4,float("inf"),float("inf")].index(min([1,1,-4,float("inf"),float("inf")])))
 if(1<float("inf")):
     print("yes")
+
+a=[1,2,3]
+print(a[0:0])

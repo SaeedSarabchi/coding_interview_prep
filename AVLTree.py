@@ -111,5 +111,3 @@ class AVLTree(BSTree):
         if to_be_deleted_parent is not None:
             to_be_deleted_parent.update_heights_upward()
             self.balance_upwards(to_be_deleted_parent)
-
-

@@ -1,0 +1,36 @@
+Error:
+You always forget the base case:     if node is None: then return (True, -1)
+put return before "return (True, 1 + max(right_result.height, left_result.height))", you were wondering around for half an hour!
+don't forget to say the space complexity! O(H) space complexity!
+XXXXXX Writing recursive code for trees: you write too much junk for the "constructor" code! compare the code below with the actual code in terms of duplication!!
+XX if you can cut the algo sooner, e.g. do not recurse on both node.left and node.right when you can cut out if node.left is False
+
+
+input: BSTree
+output: is_balanced
+subtree heights no more than 1
+
+class Result:
+    def __init__(self, is_balanced, height):
+        self.is_balanced = is_balanced
+        self.height = height
+
+def is_balanced(tree):
+    right_result = recursive_is_balanced(tree._root.right)
+    left_result = recursive_is_balanced(tree._root.left)
+    if  right_result.is_balanced and left_result.is_balanced:
+        if abs(right_result.height - left_result.height)>1:
+            return Result(False, None)
+    return True
+
+
+def recursive_is_balanced(node):
+    if node is None:
+        return (True, -1)
+    right_result = recursive_is_balanced(node.right)
+    left_result = recursive_is_balanced(node.left)
+    if  right_result.is_balanced and left_result.is_balanced:
+        if abs(right_result.height - left_result.height)>1:
+            return Result(False, None)
+    return Result(True, 1 + max(right_result.height, left_result.height))
+

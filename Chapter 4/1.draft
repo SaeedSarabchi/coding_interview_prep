@@ -1,0 +1,51 @@
+Errors:
+def GraphNode!!! -> when defining classes, remember to use: class GraphNode .... not def!
+In classes, for calling a method in the class, don't forget self!!!! -> return recursive_has_route(c, dst_node, visited)!! no, return self. ...
+again, for defining methods inside inside class, don't forget to include "self" in the first parameter!
+---
+
+brute force:
+run a dfs from that node, if the other node is visited, then there is a route.
+O(e+v) time, O(v) space.
+
+bfs: O(e+v) time, O(v) space
+
+
+def GraphNode:
+    def __init__(self, data):
+        self.data = data
+        self.children = []
+
+def Graph:
+    def __init__(self, nodes):
+        self.nodes = nodes
+
+    def has_route(self, src_node, dst_node):
+        visited = set()
+        visited.add(src_node)
+        if dst_node in visited:
+            return True
+        for c in src_node.children:
+            if c == dst_node:
+                return True
+            return recursive_has_route(c, dst_node, visited)
+        return False
+
+    def recursive_has_route(curr_node, dst_node, visited):
+        visited.add(curr_node)
+        for c in curr_node.children:
+            if c not in visited:
+                if c == dst_node:
+                    return True
+                return recursive_has_route(c, dst_node, visited)
+        return False
+
+
+node_a = GraphNode(1)
+node_b = GraphNode(2)
+node_c = GraphNode(3)
+node_a.children = [node_b]
+node_b.children = [node_c]
+
+g = Graph([node_a, node_b, node_c])
+print(g.has_route(node_a, node_c)

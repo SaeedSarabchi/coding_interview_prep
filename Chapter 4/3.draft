@@ -1,0 +1,29 @@
+assume:
+input: BSTree
+output: list of linekdlists, each linklist is consisted of tree nodes in each level.
+
+
+def create_linkedlist_per_tree_level(tree):
+    first_linked_list = LinkedList()
+    first_linked_list.add(tree._root)
+    linked_lists = []
+    if tree._root is None:
+        return linked_list
+    linked_lists = [first_linked_list]
+    list_cntr = 1
+    while True:
+        new_level = LinkedList()
+        previous_level_ref = linked_lists[list_cntr-1].head
+        while previous_level_ref is not None:
+            if previos_level_ref.data.left is not None:
+                new_level.add(previos_level_ref.data.left)
+            if previous_level_ref.data.right is not None:
+                new_level.add(previos_level_ref.data.right)
+            previous_level_ref = previous_level_ref.next
+        if (new_level._head == None):
+            break
+        linked_lists.add(new_level)
+        list_cntr += 1
+    return linked_lists
+
+
