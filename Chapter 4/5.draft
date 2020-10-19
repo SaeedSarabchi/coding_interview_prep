@@ -1,0 +1,48 @@
+Errors:
+    - in Binary Search Tree problems, the first question to ask is that : is duplicate values allowed, and on which side should they be?(left or right?)
+    because in this question (which is to validate if a given binary tree is actually a BST), if we didn't have duplicates, a much simpler solution could be used.
+
+    - XXX pay much attention that, in recursive tree problems, you don't overcomplicate the solution by checking the node's children twice,
+    once in the recurse body and once by calling the children recursively, just like below in is_bst: (check out the solution for the correct answer!)
+            def validate(tree):
+            return is_bst(tree._root, -float("inf"), float("inf"))
+
+
+            def is_bst(node, min_range, max_range):
+                #base case
+                if node is None:
+                    return True
+
+                if node.left is not None:
+                    if node.data < node.left.data or node.left.data <= min_range:
+                        return False
+                if node.right is not None:
+                    if node.data >= node.right.data or node.right.data > max_range:
+                        return False
+                return is_bst(node.left, min_range, node.data) and is_bst(node.right, node.data, max_range)
+
+
+
+def validate(tree):
+    return is_bst(tree._root)
+
+
+def is_bst(node):
+    #base case
+    if node is None:
+        return True
+
+    if node.left is not None:
+        if node.data < node.left.data:
+            return False
+    if node.right is not None:
+        if node.data > node.right.data:
+            return False
+    return is_bst(node.left) and is_bst(node.right)
+
+tree = BST()
+tree.insert(5)
+tree.insert(2)
+tree.insert(6)
+print(validate(tree))
+

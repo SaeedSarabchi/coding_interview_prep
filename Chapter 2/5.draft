@@ -1,4 +1,5 @@
-XXX in questions when there is number representation involved, you first question as an interviewee should be that: "what is the range of the numbers?"
+XXX in questions when there is number representation involved, your first question as an interviewee should be that:
+"what is the range of the numbers?"
 
 compute the size of each linkedlist with one passs, and compute the value of the represented number.
 then sum them up

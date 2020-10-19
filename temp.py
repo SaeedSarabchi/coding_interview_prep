@@ -107,8 +107,14 @@ else:
     print("no")
 
 print([1,1,-4,float("inf"),float("inf")].index(min([1,1,-4,float("inf"),float("inf")])))
-if(1<float("inf")):
-    print("yes")
+if(-10000000000000> -float("inf")):
+    print("yes sir")
 
 a=[1,2,3]
 print(a[0:0])
+a = [] + [1,2,3,4]
+a.insert(0,1234)
+print(a)
+b=[[3]+[4]+[]]
+
+print(b)

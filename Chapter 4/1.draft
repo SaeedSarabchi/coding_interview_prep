@@ -1,7 +1,7 @@
 Errors:
-def GraphNode!!! -> when defining classes, remember to use: class GraphNode .... not def!
-In classes, for calling a method in the class, don't forget self!!!! -> return recursive_has_route(c, dst_node, visited)!! no, return self. ...
-again, for defining methods inside inside class, don't forget to include "self" in the first parameter!
+- def GraphNode!!! -> when defining classes, remember to use: class GraphNode .... not def!
+- In classes, for calling a method in the class, don't forget self!!!! -> return recursive_has_route(c, dst_node, visited)!! no, return self. ...
+- again, for defining methods inside inside class, don't forget to include "self" in the first parameter!
 ---
 
 brute force:

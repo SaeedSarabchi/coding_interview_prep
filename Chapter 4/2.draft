@@ -1,7 +1,7 @@
 Errors:
-remember to add all attributes to the smaller class, e.g. in BSTreeNode, you forgot to include left and right in the __init__ method!
-The mid element in arrays is always mid_element_idx = len(sorted_array)//2, not mid_element_idx = len(sorted_array)//2-1 and a special case for 1 !!!
-build_minimal_bstree_from_sorted_array2 and add_mid_array_recursively2 are written much cleaner than their first version in the code.
+- remember to add all attributes to the smaller class, e.g. in BSTreeNode, you forgot to include left and right in the __init__ method!
+- The mid element in arrays is always mid_element_idx = len(sorted_array)//2, not mid_element_idx = len(sorted_array)//2-1 and a special case for 1 !!!
+- build_minimal_bstree_from_sorted_array2 and add_mid_array_recursively2 are written much cleaner than their first version in the code.
 
 algo:
 every time, pick the mid element, and recursively pick the mid element in the right and the left side.

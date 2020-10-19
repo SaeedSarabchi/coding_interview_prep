@@ -1,8 +1,8 @@
 Error:
-You always forget the base case:     if node is None: then return (True, -1)
-put return before "return (True, 1 + max(right_result.height, left_result.height))", you were wondering around for half an hour!
-don't forget to say the space complexity! O(H) space complexity!
-XXXXXX Writing recursive code for trees: you write too much junk for the "constructor" code! compare the code below with the actual code in terms of duplication!!
+- You always forget the base case:     if node is None: then return (True, -1)
+- put return before "return (True, 1 + max(right_result.height, left_result.height))", you were wandering around for half an hour!
+- don't forget to say the space complexity! O(H) space complexity!
+- XXXXXX Writing recursive code for trees: you write too much junk for the "constructor" code! compare the code below with the actual code in terms of duplication!!
 XX if you can cut the algo sooner, e.g. do not recurse on both node.left and node.right when you can cut out if node.left is False
 
 

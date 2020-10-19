@@ -1,0 +1,52 @@
+Errors:
+- Holy Crapp:: :))) always ask the assumptions that you make: Not always nodes have parent links!!!
+- First of all, always check the algo before coding: e.g. in this question (Common Ancestor), you were going with Height the whole time,
+untill you were coding the height algo!
+
+- pass by reference in python does not work in this sense: the pointers won't change in the function, you have to set them manually:
+    node1_ancestor_ptr = node1.parent
+    node2_ancestor_ptr = node2.parent
+    make_depth_equal(node1_ancestor_ptr, node2_ancestor_ptr) NOO
+    node1_ancestor_ptr, node2_ancestor_ptr = make_depth_equal(node1_ancestor_ptr, node2_ancestor_ptr) YES
+
+
+
+
+def common_ancestor(node1, node2):
+    if node1 is None or node2 is None:
+        return None
+    node1_ancestor_ptr = node1.parent
+    node2_ancestor_ptr = node2.parent
+    make_depth_equal(node1_ancestor_ptr, node2_ancestor_ptr)
+    while node1_ancestor_ptr is not None and node2_ancestor_ptr is not None:
+        if node1_ancestor_ptr == node2_ancestor_ptr:
+            return node1_ancestor_ptr
+        node1_ancestor_ptr = node1_ancestor_ptr.parent
+        node2_ancestor_ptr = node2_ancestor_ptr.parent
+    return None
+
+
+def make_depth_equall(ptr1, ptr2):
+    //TODO: check for null ptrs
+    depth1 = depth(ptr1)
+    depth2 = depth(ptr2)
+    depth_goal = 0
+    deeper_depth = 0
+    if depth1 > depth2:
+        deeper = ptr1
+        depth_goal = depth2
+        deeper_depth = depth1
+    else:
+        deeper = ptr2
+        depth_goal = depth1
+        deeper_depth = depth2
+    while deeper_depth == depth_goal:
+        deeper = deeper.parent
+        deeper_depth -= 1
+
+
+def depth(node):
+    if node.parent is None:
+        return 0
+    return 1 + depth(node.parent)
+

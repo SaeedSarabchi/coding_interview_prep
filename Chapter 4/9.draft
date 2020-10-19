@@ -1,0 +1,79 @@
+XXXX Algorithm, especially for weaving lists!!!
+XXX: in bst_sequence code:by adding an empty set in the return value of the base case(i.e. return [[]]), you can handle the case when
+left_seq or right_seq is empty and the loop:
+    for s_left in left_seq:
+        for s_right in right_seq:
+
+does not execute!
+
+
+Question: Weaving lists: given list1 and list2, output all the possible permutations of elements in list1 and list2, while preserving the order of
+elements within each list
+Ex,
+list1 = [1,2]
+list2 = [3,4]
+---
+perm1 = [1,2,3,4]
+perm2 = [3,4,1,2]
+perm3 = [1,3,2,4]
+perm4 = [3,1,4,2]
+perm5 = [3,1,2,4]
+perm6 = [1,3,4,2]
+result = [perm1, perm2, perm3, perm4, perm5, perm6]
+
+
+let's start with all the permutations given a list:
+def perm(list):
+    if list == []:
+        return []
+    results = []
+    for elem in list:
+        remaining = list.remove(elem)
+        recursive_permutation([elem], remaining, results)
+
+
+def recursive_permutation(list_so_far, remaining, results):
+    if len(remaining) == 0:
+        results.append(list_so_far)
+        return
+        rem = [elem for elem in remaining]
+    for elem in remaining:
+        rem.remove(elem)
+        recursive_permutation(list_so_far + [elem], rem)
+
+perm([1,2,3])
+
+----
+now back to the weaving question:
+def weave(list1, list2):
+    results = []
+    sorted_perm([], list1, list2, results)
+    return results
+
+def sorted_perm(prefix, rem1, rem2, results):
+    if len(rem1) == 0 and len(rem2) == 0:
+        results.append(prefix)
+    if len(rem1) > 0:
+        sorted_perm(prefix + rem1[0], rem1[1:], rem1, results)
+    if len(rem2) > 0:
+        sorted_perm(prefix + rem2[0], rem1, rem2[1:], results
+
+
+results = weave([1,2], [3,4])
+for elem in results:
+    print(elem)
+
+
+def bst_sequence(node) -> list:
+    if node is None:
+        return []
+    result_list = []
+    left_seq = bst_sequence(node.left)
+    right_seq = bst_sequence(node.right)
+    if left_seq is not None and right_seq is not None:
+        for seq in left_seq:
+            result_list.append([node] + seq + right_seq)
+        for seq in right_seq:
+            result_list.append([node] + seq + left_seq)
+    else:
+        return [node] + seq1 + seq2
