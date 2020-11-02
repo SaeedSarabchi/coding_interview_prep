@@ -1,0 +1,18 @@
+XXXXXXXXXXXXXX Return after the base case!!!!!!!!!!:
+def rec_place_queens(n, width, used_rows, used_cols, used_diag, curr_row, curr_col, curr_pos_list, pos_lists, memo, is_right):
+    #TODO: BASE CASE
+    if n==0:
+        pos_lists.append(curr_pos_list)
+        XXXXXXXXXXXXXXXXXXXXXXXXxx return
+
+
+
+
+
+either use this placement if it is valid (meaning that the row, column or diagonal has not been used),
+    then go right
+    then go down
+
+don't use this placement,
+    then go right
+    then go down

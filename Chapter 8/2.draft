@@ -1,0 +1,34 @@
+XXX- edge cases on if row < len(grid[0]) -1 : and if col < len(grid) -1 :
+XXX- you confused the row and column in if grid[col][new_row] != 0, you wrote vice versa!
+
+
+def get_path(grid):
+    path = []
+    if len(grid) == 0:
+        return
+    path.append((0,0))
+    return move_from(grid, 0, 0, path)
+
+def move_from(grid, row, col, path):
+    if row == len(grid[0]) -1:
+        if col == len(grid) -1:
+            return (True, path)
+
+    if row <= len(grid[0]:
+        new_row = row + 1
+        if grid[new_row][col] != 0:
+            new_path = path + [(new_row,col)]
+            (down_is_last, down_path) = move_from(grid,  new_row, col, new_path)
+            if down_is_last:
+                return True, down_path
+
+    if col <= len(grid):
+        new_col = col + 1
+        if grid[row][new_col] != 0:
+            new_path = path + [(row,new_col)]
+            (right_is_last, right_path) = move_from(grid, row, new_col, new_path)
+            if right_is_last:
+                return True, right_path
+
+grid = [[1,1,1,1][1,0,1,1][1,0,1,1]]
+print(get_path(grid))

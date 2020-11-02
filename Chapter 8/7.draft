@@ -1,0 +1,15 @@
+def permutation(perm_so_far, rem, all_perms):
+    if len(rem)  == 0:
+        all_perms.append(perm_so_far)
+
+    for i in range(len(rem)):
+        permutation(perm_so_far+[rem[i]], rem[:i]+rem[i+1:], all_perms)
+
+permutation_caller(input_list)
+    result_list = []
+    permutation([], input_list, result_list)
+    return result_list
+
+
+input_list = [a, b, c]
+print(permutation_caller(input_list))

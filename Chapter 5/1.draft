@@ -1,0 +1,8 @@
+XXX: temp >> 1 does not change temp: temp = temp >> 1 changes temp!!!
+
+
+def insert(n,m,j,i):
+    middle = m << i
+    right = (1<<j) & m
+    left = ((m>>j) & -1) << j
+    return left | middle | right

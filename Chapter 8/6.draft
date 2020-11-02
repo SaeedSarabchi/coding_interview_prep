@@ -1,0 +1,28 @@
+XXX- after base case, pay attention if you need "else" or not: in the hanoi code below, you will be stuck in an infinite loop!
+
+
+def hanoi(n, src, dst, aux):
+    if n == 1:
+        move(src, dst)
+
+    hanoi(n-1, src, aux, dst)
+    move(src, dst)
+    hanoi(n-1, aux, dst, src)
+
+n=[a,b,c]
+hanoi(n, 1, 3, 2)
+
+hanoi(2, 1,2,3)
+    hanoi(1,1,3,2) = move(1,3)
+    move(1,2)
+    hanoi(1, 3,2,1) = move(3,2)
+move(1,3)
+hanoi(2,2,3,1)
+    hanoi(1,2,1,3) = move(2,1)
+    move(2,3)
+    hanoi(1,1,3,2) = move(1,3)
+
+
+1:
+2:
+3: a,b,c
